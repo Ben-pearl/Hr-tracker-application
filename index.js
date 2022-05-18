@@ -1,5 +1,4 @@
 const dbcon = require("../HR Tracker APP/controller/connection");
-const dbuser = require("../HR Tracker APP/models/usermodel");
 const mysql = require("mysql");
 const express = require("express");
 const app = express();
@@ -15,13 +14,19 @@ dbcon.authenticate().then(()=>{
 
 //routes
 const loginpage = require("../HR Tracker APP/routes/loginroutes");
-app.use("/",loginpage);
+app.use("/login",loginpage);
 
+// const dbuser = require('../models/usermodel');
+// app.use('/',dbuser);
 
-
+// const candidate = require('../models/candidate_model');
+// app.use('/',candidate); 
 
 //server route
 app.listen(8081,function(){
     console.log("listening on 8081");
 });
 
+//sequelize entry in database
+const user_hr = require('./models/usermodel');
+const candidate = require('./models/candidate_model');
