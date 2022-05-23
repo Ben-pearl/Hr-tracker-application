@@ -3,8 +3,6 @@ const mysql = require("mysql");
 const express = require("express");
 const app = express();
 
-
-
 dbcon.authenticate().then(()=>{
     console.log("Connection Successful");
 }).catch(err=>{
@@ -15,6 +13,7 @@ dbcon.authenticate().then(()=>{
 //routes
 const loginpage = require("../HR Tracker APP/routes/loginroutes");
 app.use("/login",loginpage);
+app.use ('/login/dashboard',loginpage);
 
 // const dbuser = require('../models/usermodel');
 // app.use('/',dbuser);
@@ -30,3 +29,7 @@ app.listen(8081,function(){
 //sequelize entry in database
 const user_hr = require('./models/usermodel');
 const candidate = require('./models/candidate_model');
+const company = require('./models/company_model');
+const jobs = require('./models/job_model');
+
+module.exports = app;

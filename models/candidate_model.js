@@ -1,6 +1,6 @@
 const db = require("../controller/connection");
 const sequelize = require("sequelize");
-const candidate = db.define('candidate_table',{
+const candidate = db.define('candidate_tables',{
     ca_id:sequelize.INTEGER,
     ca_name:sequelize.STRING,
     address:sequelize.STRING,

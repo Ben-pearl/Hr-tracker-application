@@ -1,7 +1,6 @@
 {
   "name": "hr-tracker-app",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,5 +18,14 @@
     "path": "^0.12.7",
     "sequelize": "^6.19.0",
     "swagger-ui-express": "^4.3.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ben-pearl/Hr-tracker-application.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ben-pearl/Hr-tracker-application/issues"
+  },
+  "homepage": "https://github.com/Ben-pearl/Hr-tracker-application#readme",
+  "description": ""
 }

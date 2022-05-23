@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const session = require("express-session");
+const { request } = require("http");
 const path = require('path');
 const conn = require("../controller/connection");
 const user = require('../models/usermodel');
@@ -12,36 +13,37 @@ app.get('/',function(req,res){
 });
 
 
-app.post('/', user.login);
-exports.login = function(res,req){
-    var message = '';
-    var sess = req.session;
+// app.post('/user/all', function(req, res){
+//     Controller.Create
+//   });
+  
 
-    if(req.method == 'POST'){
-        var post = req.body;
-        var hr_id = req.body.hr_id;
-        var pass = req.body.hr_pass;
+app.post('/login',function login(res, req) {
+// app.post('/login', user.login);
+var hr_id = req.body.hr_id;
+        var hr_password = req.body.hr_password;
+    if (hr_id && hr_password) {
+        var sql = "SELECT hr_id, hr_password FROM user_tables WHERE hr_id ='" + hr_id + " 'and pass =' " + hr_password + "'";
+        conn.query(sql, function (err, results) {
+            if(err) throw err;
+            if (results.length>0) {
+              req.session.loggedin = true;
+              req.session.hr_id = hr_id;
+              res.redirect('/dashboard');
 
-        var sql = "SELECT hr_id, hr_password FROM user_tables WHERE hr_id ='"+hr_id+" 'and pass =' "+hr_password+"'";
-        conn.query(sql, function(err,results){
-            if(results.length){
-                req.sess.hr_id = results[0].hr_id;
-                req.sess.pass = results[0].hr_pass;
-                console.log(results[0].id);
-                res.redirect('/dashboard');
-            
             }
-            else{
+            else {
                 message = 'Wrong credentials';
-                res.render('',{message: message});
+                res.render('', { message: message });
             }
+            res.end();
 
         });
-        
-    }else{
-        res.render('',{message: message});
+
+    } else {
+        res.render('', { message: message });
     }
-};
+});
 
 
 
@@ -83,6 +85,4 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname,'static')));
 
-module.exports = {
-    app,login
-};
+module.exports = app;

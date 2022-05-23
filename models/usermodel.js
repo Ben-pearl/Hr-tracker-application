@@ -1,7 +1,7 @@
 const db = require("../controller/connection");
 const sequelize = require("sequelize");
 
-const users = db.define('user_table', {
+const users = db.define('user_tables', {
     hr_id:{
         type:sequelize.INTEGER
     },
