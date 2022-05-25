@@ -4,11 +4,11 @@ const session = require("express-session");
 const { request } = require("http");
 const path = require('path');
 const conn = require("../controller/connection");
-const user = require('../models/usermodel');
 
 
-app.get('/',function(req,res){
-    // res.sendFile(path.join(__dirname + '../index.html'));
+
+app.get('/',function(req,res) { 
+//res.sendFile(path.join(__dirname + '../index.html'));
    res.send('hi')
 });
 
@@ -18,37 +18,46 @@ app.get('/',function(req,res){
 //   });
   
 
-app.post('/login',function login(res, req) {
+app.post('/login',function login(req, res) {
 // app.post('/login', user.login);
-var hr_id = req.body.hr_id;
-        var hr_password = req.body.hr_password;
+   a
     if (hr_id && hr_password) {
+        var hr_id = req.body.hr_id;
+        var hr_password = req.body.hr_password;
         var sql = "SELECT hr_id, hr_password FROM user_tables WHERE hr_id ='" + hr_id + " 'and pass =' " + hr_password + "'";
-        conn.query(sql, function (err, results) {
+        conn.query(sql, function (err, result, fields) {
+
             if(err) throw err;
-            if (results.length>0) {
-              req.session.loggedin = true;
-              req.session.hr_id = hr_id;
-              res.redirect('/dashboard');
+            
+            if (result.length>0) {
+                req.session.loggedin = true;
+                req.session.hr_id = hr_id;
+                res.redirect('/dashboard');
 
             }
             else {
-                message = 'Wrong credentials';
-                res.render('', { message: message });
+               
+                res.send('wrong');
             }
-            res.end();
+            res.end(); 
 
         });
 
     } else {
-        res.render('', { message: message });
+        res.send('error occured');
     }
 });
-
-
-
-
-
+app.get('/dashboard', function(request, response) {
+	// If the user is loggedin
+	if (request.session.loggedin) {
+		// Output username
+		response.send('Welcome back, ' + request.session.username + '!');
+	} else {
+		// Not logged in
+		response.send('Please login to view this page!');
+	}
+	response.end();
+});
 
 // app.post('/login',function(req,res){
 //     let hr_id = req.body.hr_id;

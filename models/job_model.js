@@ -1,13 +1,22 @@
 const db = require('../controller/connection');
 const sequelize = require('sequelize');
 
-const jobs = db.define('jobs_table',{
-    job_id:sequelize.INTEGER,
-    job_name:sequelize.STRING,
-    description:sequelize.STRING,
-    job_location:sequelize.STRING,
-    skillset:sequelize.STRING,
-    ctc:sequelize.STRING
+const jobs = db.define('job_tables',{
+    job_id:
+    {
+        type:sequelize.INTEGER,
+        primaryKey:true
+    },
+    job_name:
+    {type:sequelize.STRING},
+    description:{
+        type:sequelize.STRING},
+
+    job_location:{
+        type:sequelize.STRING},
+
+    skillset:{type:sequelize.STRING},
+    ctc:{type:sequelize.STRING}
 })
 
 db.sync({force:true}).then(()=>{

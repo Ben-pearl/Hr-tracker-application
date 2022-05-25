@@ -2,7 +2,7 @@ const db = require('../controller/connection');
 const sequelize = require('sequelize');
 
 const company = db.define('company_tables',{
-    company_id:sequelize.STRING,
+    company_id:sequelize.INTEGER,
     company_name:sequelize.STRING,
     description:sequelize.STRING,
     comp_address:sequelize.STRING,
@@ -11,10 +11,10 @@ const company = db.define('company_tables',{
 
 db.sync({force:true}).then(()=>{
     company.create({
-        company_id:'',
-        company_name:'',
-        description:'',
-        comp_address:'',
+        company_id:'01',
+        company_name:'TCS',
+        description:'Some description given by the company',
+        comp_address:'chennai',
         logo:''
     });
 });
