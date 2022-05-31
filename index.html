@@ -1,12 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Hr tracker</title>
+
 </head>
-<body>
+
+<body class="main_div_color">
+  <script type="text/javascript" src="./script/progresscircle.js"></script>
+  <section class="nav-sec">
     
+      <div class="topnav">
+        <img src="image/Dashboard/rvm-endless 1.png" class="toplogo1">
+        <img src="image/User/admin.png" class="toplogo">
+        <div class="topnav_content1">Admin
+        <div class="topnav_content2">Amala Benciya</div></div>
+        <img src="./image/Dashboard/Line_header.png">
+        <a class="topnav_content3" href="./login.html">Logout</a>
+
+      </div>
+    </div>
+  </section>
+  <div class="container">
+  <section>
+    <!-- Sidebar - Brand -->
+    <div class="sidenav">
+      <img src="./image/Dashboard/sidenav_toplogo.jpg" class="sidenav_toplogo" width="300" height="85">
+      <img src="./image/Dashboard/dash.png"  class="sidelogo2">
+      <a class="sidenav_content" href="#about">Dashboard</a>
+      <img src="./image/Dashboard/task.png" class="sidelogo2">
+      <a class="sidenav_content" href="./to_do_list.html">Task</a>
+      <img src="./image/Dashboard/create_userr.png" width="26" height="33" class="sidelogo2">
+      <a class="sidenav_content" href="./admin_create_user.html">Create User</a>
+      <img src="./image/Dashboard/creat_company.png" class="sidelogo3">
+      <a class="sidenav_content" href="./admin_create_company.html">Create Company</a>
+      <img src="./image/Dashboard/createuser.png" width="24" height="28" class="sidelogo2">
+      <a class="sidenav_content" href="./admin_profile.html">Admin Profile</a>
+      <img src="./image/Dashboard/rvm-endless 3.png" width="148" height="48" class="sidelogo1">
+      <img src="./image/Dashboard/Group 69.png" width="75" height="120" class="sidelogo">
+    </div>
+      <h1 class="dashboard_heading">DashBoard</h1>
+  </section>
+
+  <section class="card">
+    <div class="container">
+      <div class="w_cards">
+        <div class="cards">
+          <div class="ca1">
+
+            <div class="ca">
+              <div class="card_div">
+              <img src="./image/Dashboard_progress/writing.png" class="progress_logo">
+                <a class="card1" href="./admin_application_list.html">Applications</a>
+              </div>
+              
+              <h1 class="admin_progress_card_number1">145</h1>
+              <canvas id="myChart" width="20" height="20"></canvas>
+              <div role="application_progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"
+                style="--value:60"></div>
+            </div>
+
+            <div class="ca">
+              <div class="card_div">
+              <img src="./image/Dashboard_progress/Shortlisted.png" class="progress_logo">
+              <a class="card1" href="./admin_application_list.html">Shortlisted</a></div>
+              <h1 class="admin_progress_card_number2">70</h1>
+              <canvas id="myChart" width="20" height="20"></canvas>
+              <div role="shortlisted_progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"
+                style="--value:25"></div>
+
+            </div>
+
+          </div>
+          <div class="secondcard">
+            <div class="ca1">
+              <div class="ca">
+                <div class="card_div">
+                <img src="./image/Dashboard_progress/Finalized.png" class="progress_logo">
+                <a class="card1" href="./admin_application_list.html">Finalised</a></div>
+                <h1 class="admin_progress_card_number3">20</h1>
+                <canvas id="myChart" width="20" height="20"></canvas>
+                <div role="finalised_progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"
+                  style="--value:76"></div>
+
+              </div>
+
+              <div class="ca">
+                <div class="card_div">
+                <img src="./image/Dashboard_progress/Rejected.png" class="progress_logo">
+                <a class="card1" href="./admin_application_list.html">Rejected</a></div>
+                <h1 class="admin_progress_card_number4">125</h1>
+                <canvas id="myChart" width="20" height="20"></canvas>
+                <div role="rejected_progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"
+                  style="--value:80"></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="card3">
+          <h1 class="candidate_progress_heading">Candidates by Gender</h1>
+          <canvas id="myChart" width="20" height="20"></canvas>
+          <div role="candidate_progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"
+            style="--value:60"></div>
+        </div>
+      </div>
+
+    </div>
+
+    </div>
+    </div>
+  </section>
+  <div class="admin_summary_main_heading">
+    <h1 class="dashboard_heading3">Assign to HR</h1>
+  </div>
+  <a class="topnav_content3" href="#">Logout</a>
+  <section class="card">
+    <div class="container">
+      <div class="secondcard">
+        <div class="Assigncard1">
+
+          <div class="Assigncard">
+            <img class="assigncard_image" src="./image/User/img3.png">
+            <h1 class="name">Bharathy Catherin</h1>
+            <p class="company_name">company name</p>
+            <button class="admin_dashboard_btn" onclick="location.href='./hr_work_asign.html'">Assign</button>
+          </div>
+
+          <div class="Assigncard">
+            <img class="assigncard_image" src="./image/User/img4.png">
+            <h1 class="name">Amala Benciya</h1>
+            <p class="company_name">company name</p>
+            <button class="admin_dashboard_btn" onclick="location.href='./hr_work_asign.html'">Assign</button>
+          </div>
+
+          <div class="Assigncard">
+            <img class="assigncard_image" src="./image/User/img5.png">
+            <h1 class="name">Benial Pearl</h1>
+            <p class="company_name">company name</p>
+            <button class="admin_dashboard_btn" onclick="location.href='./hr_work_asign.html'">Assign</button>
+          </div>
+
+          <div class="Assigncard">
+            <img class="assigncard_image" src="./image/User/img1.png">
+            <h1 class="name">Hari Krishnan</h1>
+            <p class="company_name">company name</p>
+            <button class="admin_dashboard_btn" onclick="location.href='./hr_work_asign.html'">Assign</button>
+          </div>
+
+          <div class="Assigncard">
+            <img class="assigncard_image" src="./image/User/img2.png">
+            <h1 class="name">Aman Surin</h1>
+            <p class="company_name">company name</p>
+            <button class="admin_dashboard_btn" onclick="location.href='./hr_work_asign.html'">Assign</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </body>
+
+
 </html>
