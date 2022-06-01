@@ -5,11 +5,9 @@ const app = express();
 //routes
 app.use(express.urlencoded({extended : false}))
 
-app.use ('/login',require('./bussiness/userlogin'));
+app.use ('/login',require('./routes/admin'));
 
-// //logoutclick handler
-// app.use('/logout',require('./bussiness/userlogout'));
-
+app.use('/createuser',require('./bussiness/adminusercreate'));
 
 //server route
 app.listen(8081,function(){

@@ -11,4 +11,4 @@ const bcrypt = require('bcrypt');
 // const panel = require('../HR Tracker APP/DAL/panel');
 
 
-module.exports=conn;
+module.exports=conn, users;
