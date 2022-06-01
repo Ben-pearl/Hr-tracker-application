@@ -19,23 +19,10 @@ app.get('/createruser', (req, res) => {{
     res.render('createruser.html');
 }});
 
-// uploading image
-app.post('/createruserimage',upload.single('image'), (req, res) =>{
-    if (!req.file) {
-        console.log("No file upload");
-    } else {
-        console.log(req.file.filename)
-        var imgsrc = 'http://127.0.0.1:8081/images/' + req.file.filename
-        var insertData = "INSERT INTO user_tables(file_src)VALUES(?)"
-        db.query(insertData, [imgsrc], (err, result) => {
-            if (err) throw err
-            console.log("file uploaded")
-        })
-    }
-});
+
 
 //entries
-const db = require('../DAL/userDAL')
+const db = require('../../DAL/userDAL')
 app.post('/createuserentries', (req, res) => {
     const name = req.body.hr_name;
     const id = req.body.hr_id;
@@ -52,5 +39,18 @@ app.post('/createuserentries', (req, res) => {
         res.redirect('/createuserentries');
     })
 })
-
+// uploading image
+app.post('/createruserimage',upload.single('image'), (req, res) =>{
+    if (!req.file) {
+        console.log("No file upload");
+    } else {
+        console.log(req.file.filename)
+        var imgsrc = 'http://12 7.0.0.1:8081/images/' + req.file.filename
+        var insertData = "INSERT INTO user_tables VALUES hr_image"
+        db.query(insertData, [imgsrc], (err, result) => {
+            if (err) throw err
+            console.log("file uploaded")
+        })
+    }
+});
 module.exports = app;

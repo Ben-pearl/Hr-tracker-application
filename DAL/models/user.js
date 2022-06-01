@@ -1,5 +1,6 @@
 const db = require("../../config/connection");
 const sequelize = require("sequelize");
+const bcrypt = require("bcrypt");
 
 const users = db.define('user_tables', {
     hr_id:{
@@ -23,10 +24,18 @@ const users = db.define('user_tables', {
     },
     hr_password:{
         type:sequelize.STRING
+    },
+    hr_image:{
+        type:sequelize.BLOB
     }
 
     
 });
+
+users.addHook(
+    "beforeCreate",
+    users => (users.hr_password = bcrypt.hashSync(users.hr_password, 10))
+  );
 
 db.sync({force:true}).then(()=>{
     users.create({
